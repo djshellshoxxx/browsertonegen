@@ -76,6 +76,7 @@ spectrum.fillStyle='#adb5c0';spectrum.font='12px monospace';spectrum.fillText($(
 $('visuals').onchange=()=>{for(const id of ['scope','spectrum'])$(id).hidden=!$('visuals').checked;};
 for(const id of ['help','about']){$(id+'Button').onclick=()=>$(id).showModal();document.querySelector(`[data-close="${id}"]`).onclick=()=>$(id).close();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){stop(true);return;}if(e.code==='Space'&&!e.repeat&&!e.altKey&&!e.ctrlKey&&!e.metaKey&&!e.target.closest('input,textarea,select,button,a,[contenteditable=true]')&&!document.querySelector('dialog[open]')){e.preventDefault();engine.state==='stopped'?start():stop();}});
+window.addEventListener('hashchange',()=>{if(location.hash.startsWith('#config=')){try{load(decodeState(location.hash.slice(8),rate()),'shared configuration');}catch(e){error(e);}}});
 window.addEventListener('pagehide',()=>engine.panic());window.addEventListener('error',e=>log('uncaught',e.message));window.addEventListener('unhandledrejection',e=>error(e.reason||Error('Unexpected asynchronous error.')));
 $('version').textContent=VERSION;$('aboutVersion').textContent=VERSION;render();readSaved();calculate();if(location.hash.startsWith('#config=')){try{state=decodeState(location.hash.slice(8));render();message('Shared configuration loaded. Press Start to play.');}catch(e){error(e);}}visualize();
 // Read-only diagnostic surface for browser verification and support.

@@ -26,13 +26,15 @@ jobs:
           mkdir -p /tmp/btg-preview/browsertonegen
           cp -a index.html styles.css favicon.svg src /tmp/btg-preview/browsertonegen/
           python -m http.server 8000 --directory /tmp/btg-preview &
-          for attempt in 1 2 3 4 5; do curl -fsS http://127.0.0.1:8000/browsertonegen/ && break || sleep 1; done
+          for attempt in 1 2 3 4 5; do curl -fsS -o /dev/null http://127.0.0.1:8000/browsertonegen/ && break || sleep 1; done
           npm run test:browser
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: browser-results
-          path: docs/BROWSER_RESULTS.json
+          path: |
+            docs/BROWSER_RESULTS.json
+            docs/*.png
   deploy:
     needs: test
     runs-on: ubuntu-latest
