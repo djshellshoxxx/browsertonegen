@@ -2,7 +2,9 @@
 
 A browser multi-tone signal workbench by [Circuit Drift Labs](https://djshellshoxxx.github.io/circuitdriftlabs/). Version **0.1.0-beta.1**.
 
-Target Pages URL: https://djshellshoxxx.github.io/browsertonegen/. See [final audit](docs/FINAL_AUDIT.md) for deployment and verification status; a target URL is not proof of deployment.
+Live app: https://djshellshoxxx.github.io/browsertonegen/. Deployed and verified. See [final audit](docs/FINAL_AUDIT.md) for test evidence and limits.
+
+![BrowserToneGen interface](docs/interface.jpg)
 
 ## Use
 
@@ -54,7 +56,7 @@ Static HTML/CSS and ES modules. One persistent AudioContext runs one stereo Audi
 
 ## Compatibility and limits
 
-Requires a modern browser with ES modules, Web Audio and AudioWorklet over HTTPS or localhost. WAV rendering requires module Workers. Chromium automation is provided; Firefox, Safari/iOS and physical audio output require verification as indicated in the audit. Background tabs and mobile OS policies may interrupt playback. Audio hardware/output volume is outside the app.
+Requires a modern browser with ES modules, Web Audio and AudioWorklet over HTTPS or localhost. WAV rendering requires module Workers. 38 core tests and 16 Chromium browser interaction groups pass; Firefox, Safari/iOS and physical audio output require verification as indicated in the audit. Background tabs and mobile OS policies may interrupt playback. Audio hardware/output volume is outside the app.
 
 Frequency range is 0.1 Hz to actual sample-rate Nyquist minus 1 Hz. Digital levels are peak-scale dBFS, not calibrated SPL or volts. Noise colors and anti-aliasing are approximations. Modulation can create aliasing. The final 0.98 hard ceiling is reported and may distort overloaded signals. No microphone/room-response measurement, grey-noise calibration, speech announcements or PWA caching in this beta. Export maximum 120 s; longest 96 kHz stereo renders can use about 185 MB.
 

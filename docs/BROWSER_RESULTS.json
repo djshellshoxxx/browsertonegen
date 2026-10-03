@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-03T19:35:35.626Z",
+  "browser": "151.0.7922.34",
+  "base": "http://127.0.0.1:8000/browsertonegen/",
+  "checks": [
+    "load subpath; eight tones; silent until gesture",
+    "simple advanced mode preserves settings",
+    "add duplicate reorder remove tone",
+    "preset load; real AudioWorklet start; measured output",
+    "live frequency phase routing gain and mute wired",
+    "pause freezes context; resume; panic disconnects",
+    "Stop fade, restart and Panic cancel retiring nodes",
+    "saved preset CRUD persistence; JSON downloads",
+    "invalid JSON import leaves last valid state; valid import silent",
+    "sweep controls, additive pattern and modulation wiring",
+    "sequence stage CRUD and shared sequence settings",
+    "timer automatically stops and Escape panic",
+    "WAV worker download: 24-bit 44.1k mono normalization",
+    "musical calculator and add calculated tone",
+    "URL restore no autoplay and both navigation links",
+    "display toggle, Help/About and 390px responsive layout"
+  ],
+  "errors": []
+}

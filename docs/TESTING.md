@@ -2,11 +2,11 @@
 
 ## Core suite
 
-`npm test`: Node native test runner; 37 tests at initial beta verification, all passing locally. Uses sampled signals and Fourier projections to measure frequency/component amplitudes and channel isolation; RMS and correlation measure phase/polarity, not merely existence of source functions. Covers validation, units, harmonics, sweeps, steps, sequences, global and per-tone timing, presets/migration/URL, routing, noise, modulation, headroom and RIFF samples/headers. 32-sine-voice benchmark generates 1 second of samples in about 170 ms CPU wall time on this environment; not a guarantee on all devices.
+`npm test`: Node native test runner; 38 tests at final beta verification, all passing locally. Uses sampled signals and Fourier projections to measure frequency/component amplitudes and channel isolation; RMS and correlation measure phase/polarity, not merely existence of source functions. Covers validation, units, harmonics, sweeps, steps, sequences, global and per-tone timing, presets/migration/URL, routing, noise, modulation, headroom and RIFF samples/headers. 32-sine-voice benchmark generates 1 second of samples in about 170–201 ms CPU wall time on this environment; not a guarantee on all devices.
 
 ## Browser suite
 
-`npm run test:browser`: Playwright Chromium checks under the production subpath. Real context/worklet lifecycle and nonzero generated meters, live frequency/phase/channel/mute changes, pause/resume/panic, tone CRUD/order, local presets/JSON import/download, sweep/additive/modulation, stage editing, automatic timer stop, WAV Worker output, pitch calculator, share restoration, navigation, dialogs and 390 px overflow. Browser executable download failed locally (download endpoints returned invalid archives), and cloud browser rejects localhost. CI is configured to run this suite; unexecuted checks must not be reported as passing.
+`npm run test:browser`: Playwright Chromium checks under the production subpath. Real context/worklet lifecycle and nonzero generated meters, live frequency/phase/channel/mute changes, pause/resume/panic, tone CRUD/order, local presets/JSON import/download, sweep/additive/modulation, stage editing, automatic timer stop, WAV Worker output, pitch calculator, share restoration, navigation, dialogs and 390 px overflow. Local browser executable download failed, so the suite ran in GitHub Actions. Chrome Headless Shell 151.0.7922.34 passed all 16 interaction groups with no page errors, including 200% text enlargement. Successful run 37148417156 also deployed Pages. Actual live page was manually inspected for generator output and Panic. Physical output was not listened to.
 
 ## Manual physical checks still needed
 
