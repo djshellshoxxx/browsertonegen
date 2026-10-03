@@ -1,0 +1,7 @@
+# Audio Engine Spec
+
+Version: 0.1.0-beta.1
+
+One persistent AudioContext is created only from Start. One stereo AudioWorkletNode runs shared pure-JS DSP, followed by master GainNode, stereo splitter and two AnalyserNodes. Worklet uses integer sample counter, not JS timers, for envelopes, delays, stage boundaries and global repetition. Shared DSP is also used in an export Worker. IDs preserve oscillator phase on edits; initial phase is degrees relative to sine zero crossing; phase offset edits change the offset, frequency edits preserve accumulated phase. Group starts share a sample clock. Frequency is 0.1 Hz to sampleRate/2 - 1 Hz. Gain changes smooth over approximately 5 ms. Frequency modulation clamps instantaneous frequency to valid band. Headroom uses sum of enabled amplitude peaks (AM maximum included), 1/max(1,sum), displayed in UI. Final hard ceiling 0.98 prevents digital overload and is reported; it is not a transparent analog or true-peak limiter. Master mute zeros output; panic zeros master immediately, disconnects worklet and cancels pending Start. Stop applies configurable ramp before disconnect; pause suspends context and resumes sample clock. Context failures stop safely and report actionable text. Do not use deprecated ScriptProcessor fallback; show export-capable state when AudioWorklet unavailable. Nodes are disconnected after stop, context retained. No device-volume modification.
+
+Requirements: ENG-TRANSPORT-001, ENG-LEVEL-001, ENG-TIMER-001, ERR-001. See REQUIREMENTS_MATRIX.md for verification.

@@ -1,0 +1,1 @@
+{"name":"browsertonegen","version":"0.1.0-beta.1","private":true,"type":"module","scripts":{"test":"node --test tests/core.test.js","test:browser":"node tests/browser.test.js"}}
