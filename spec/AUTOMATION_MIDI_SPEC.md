@@ -1,0 +1,9 @@
+# Automation, MIDI and recording extension (0.2)
+
+Schema 1 remains compatible: missing `tone.automation` and `midiMappings` become empty arrays. Up to seven unique numerical lanes per tone target frequency, amplitude, pan, phase, pulseWidth, modFrequency or modDepth. Each carries field/mode/from/to/duration/delay/loop. Modes are linear, exponential, sine or triangle. Validation rejects duplicate targets, unknown fields, nonfinite/out-of-range values and oversized lists. Shared DSP evaluates every lane on the sample clock, uses a reusable voice object, preserves oscillator phase on updates, and budgets automated peak amplitude for headroom. WAV shares identical lane evaluation. Frequency values remain below Nyquist and depth is clamped per modulation mode.
+
+MIDI maps have target (master or stable tone ID), field, 1-based channel, CC, min/max. Up to 64 maps, validated references and parameter limits. Optional user-initiated Web MIDI without SysEx; input selection, hotplug, Learn, CC routing, removal and disconnect. Automation wins on an overlapping control. Removing a tone deletes its mappings. No MIDI notes, output or clock sync.
+
+WAV export is visible in simple mode. Live recording connects the final output gain to a MediaStreamAudioDestinationNode, uses a supported MediaRecorder codec, and saves locally. Stop/Panic, timer completion or 120 seconds stop recording; Pause/Resume also pause/resume the recorder. No microphone input. Presets, JSON and URLs include lanes and mappings but never automatically connect MIDI or play audio.
+
+Regression coverage includes live-added matching tones (original bug reproduces cancellation), fresh schedules for late finite voices, lane interpolation/validation/render spectra, headroom budgeting, browser UI editing/recipes, mocked MIDI connect/learn/mapping/persistence, and live recording download. Physical MIDI and hardware listening are separate checks.

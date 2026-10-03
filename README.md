@@ -1,6 +1,6 @@
 # BrowserToneGen
 
-A browser multi-tone signal workbench by [Circuit Drift Labs](https://djshellshoxxx.github.io/circuitdriftlabs/). Version **0.1.0-beta.1**.
+A browser multi-tone signal workbench by [Circuit Drift Labs](https://djshellshoxxx.github.io/circuitdriftlabs/). Version **0.2.0-beta.1**.
 
 Live app: https://djshellshoxxx.github.io/browsertonegen/. Deployed and verified. See [final audit](docs/FINAL_AUDIT.md) for test evidence and limits.
 
@@ -8,7 +8,13 @@ Live app: https://djshellshoxxx.github.io/browsertonegen/. Deployed and verified
 
 ## Use
 
-Open the app, choose a reference preset or enable/edit a tone, then press Start. The default bank has eight slots; up to 32 voices can run simultaneously. Enable Advanced for phase/routing/timing, harmonics, modulation, sequences, stereo tools and WAV rendering. Stop fades the output; Escape/Panic silences it immediately. Space controls transport outside focused controls.
+Open the app, choose a reference preset or enable/edit a tone, then press Start. The default bank has eight slots; up to 32 voices can run simultaneously. Enable Advanced for phase/routing/timing, harmonics, modulation, sequences, stereo tools and sequences. Automation, MIDI and audio saving are available in simple mode. Stop fades the output; Escape/Panic silences it immediately. Space controls transport outside focused controls.
+
+## New in 0.2
+
+Live-added matching tones inherit oscillator phase to prevent accidental cancellation. Newly added or re-enabled voices start their own timing schedule. Add per-tone automation lanes for pitch, amplitude, pan, phase, pulse width, modulation rate or depth; use linear/exponential ramps and sine/triangle cycles. Connect MIDI controllers with channel-specific CC mappings and MIDI Learn. Presets/JSON/share links preserve automation and mappings. Save audio through offline WAV rendering or record live output to capture manual/MIDI changes.
+
+Use the on-page Automation recipes panel or [sound recipes](docs/AUTOMATION_RECIPES.md) for bass drops, sweeps, sub tests, sub drops and wobbles.
 
 ## Features
 
