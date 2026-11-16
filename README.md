@@ -56,6 +56,10 @@ Use `?debug=1` or Advanced → Diagnostics → Troubleshooting logs. Copy diagno
 
 Static HTML/CSS and ES modules. One persistent AudioContext runs one stereo AudioWorklet; a GainNode controls stop/panic, and two AnalyserNodes inspect channels. The worklet and export Worker use the same DSP module. Validation reconstructs a bounded versioned state. Node tests measure generated samples directly. See [architecture](docs/ARCHITECTURE.md), [development](docs/DEVELOPMENT.md) and [testing](docs/TESTING.md).
 
+## Wiki
+
+Wiki source pages are in [docs/wiki/](docs/wiki/Home.md): user and developer summaries, architecture rationale and codebase map.
+
 ## Deployment
 
 `.github/workflows/pages.yml` runs Node tests and the Playwright browser suite before uploading a static Pages artifact. Set repository **Settings → Pages → Source → GitHub Actions**. The connected repository tools may not expose that administrative setting; if deployment is blocked, the audit records it. All asset/worklet/worker URLs are relative to support `/browsertonegen/`.
